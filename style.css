@@ -28,3 +28,10 @@ audio{width:100%;margin:15px 0;accent-color:var(--gold)}
 .verdict-options{margin:22px 0}.verdict-reason{margin-top:25px}.inline-warning{color:#e3a18d!important;border-left:2px solid #b56b57;padding:10px 14px}
 .chapter-feedback{margin-top:22px}.chapter-feedback:empty{display:none}
 @media(max-width:760px){.evidence-grid{grid-template-columns:1fr}.audio-top{align-items:flex-start}.letter-sheet p{font-size:15px}.action-row>*{width:100%}.secondary-button{margin-top:12px}}
+
+
+/* Evidence-room questions use alternating paper tones for easier scanning. */
+.evidence-question{padding:1rem 1.1rem;margin:.7rem 0;border:1px solid var(--line);border-radius:8px}
+.evidence-q-0{background:rgba(242,232,213,.055)}
+.evidence-q-1{background:rgba(201,165,104,.12)}
+button:disabled{opacity:.48;cursor:not-allowed;filter:saturate(.55)}
