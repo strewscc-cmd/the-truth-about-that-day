@@ -73,43 +73,20 @@ function voices(){
  });
 }
 function evidenceRoom(){
- $('#chapter-content').innerHTML=`
- <div class="audio-card"><div class="audio-top"><span class="eyebrow">EVIDENCE AUDIO 02</span><span class="audio-duration">LISTENING TASK</span></div><h3>Nora’s Unsent Letter</h3><p>Listen to Nora read the letter she wrote to her mother. Answer the questions before examining the written evidence below.</p><audio controls preload="metadata"><source src="assets/audio/nora-unsent-letter.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></div>
- <div class="answer-panel"><p class="eyebrow">LISTENING CHECK</p><h3>What does Nora reveal?</h3>
- <div class="classify-item"><p>1. What did Nora save so she could share things with her mother?</p><select id="nora-listen-1"><option value="">Choose an answer</option><option value="a">Things she wanted to tell her mother</option><option value="b">Only her school reports</option><option value="c">Letters from her teachers</option></select></div>
- <div class="classify-item"><p>2. What important event did Nora mention?</p><select id="nora-listen-2"><option value="">Choose an answer</option><option value="a">A birthday party</option><option value="b">A music competition at school</option><option value="c">A family holiday</option></select></div>
- <div class="classify-item"><p>3. What can we infer from Nora’s letter?</p><select id="nora-listen-3"><option value="">Choose an answer</option><option value="a">She knows for certain that Elena received every letter.</option><option value="b">She feels hurt and interprets the lack of contact as possible rejection.</option><option value="c">She no longer wants a relationship with her mother.</option></select></div>
- <button class="button" id="check-nora-listening">CHECK LISTENING</button><div id="nora-listening-feedback" aria-live="polite"></div></div>
- <div class="letter-sheet"><div class="letter-meta">PERSONAL CORRESPONDENCE · ITEM C</div><h3>Dear Mum,</h3>
- <p>I don't know if I should still call you that when it feels like I'm talking to someone who isn't really here.</p>
- <p>I used to save every little thing I wanted to tell you. The songs I liked, the funny things my friends said, and the moments I wished you could see. I thought if I wrote everything down, the distance between us wouldn't feel so big.</p>
- <p>But I don't know where my letters go anymore. Sometimes I wonder if you even read them. Maybe you're too busy. Maybe you've forgotten what it's like to have a daughter waiting for you.</p>
- <p>Last week was my music competition at school. I kept looking at the audience, hoping I would see you, even though I knew you lived so far away. I checked my phone after the performance, too. No message. No letter. Nothing.</p>
- <p>Everyone told me I did well, but I couldn't stop thinking about the one person I wanted to hear it from.</p>
- <p>I miss you, Mum. I really do. But I'm tired of missing someone who seems so far away, even when I try to reach her.</p>
- <p>Maybe one day I'll understand why things turned out this way. For now, I don't know what else to say.</p><p><em>Nora</em></p></div>
- <div class="evidence-grid">
- <article class="evidence-card"><span class="evidence-tag">ITEM A · LETTER</span><h3>Elena’s letter</h3><p><b>Date:</b> 12 March, Year 1</p><p>Elena writes, “I will keep trying to reach you.” The letter is signed and addressed to Nora at the family’s old home.</p><p class="evidence-label">CAN SUPPORT</p><p>Elena wrote a message expressing an intention to stay in touch.</p></article>
- <article class="evidence-card"><span class="evidence-tag">ITEM B · ENVELOPE</span><h3>Returned mail</h3><p><b>Mark:</b> “Return to sender — address unknown”</p><p>The envelope carries a postal mark and a handwritten address correction. No delivery confirmation is present.</p><p class="evidence-label">CAN SUPPORT</p><p>At least this item appears to have encountered a delivery problem.</p></article>
- <article class="evidence-card"><span class="evidence-tag">ITEM C · NORA’S LETTER</span><h3>An unsent reply</h3><p><b>Context:</b> written after a difficult school day</p><p>The letter describes Nora’s longing, uncertainty about whether Elena receives her letters, and disappointment after her music competition.</p><p class="evidence-label">CAN SUPPORT</p><p>Nora felt hurt and wanted contact; the letter alone does not establish what Elena knew or received.</p></article>
- </div>
- <div class="answer-panel"><p class="eyebrow">EVIDENCE ANALYSIS</p><h3>Fact, inference, or assumption?</h3><p>Choose the strongest classification for each statement.</p>
- <div class="classify-item"><p>1. The envelope has a “return to sender” postal mark.</p><select id="class-1"><option value="">Choose classification</option><option>Fact</option><option>Inference</option><option>Assumption</option></select></div>
- <div class="classify-item"><p>2. At least one letter may not have reached Nora because of an address problem.</p><select id="class-2"><option value="">Choose classification</option><option>Fact</option><option>Inference</option><option>Assumption</option></select></div>
- <div class="classify-item"><p>3. Elena never loved Nora.</p><select id="class-3"><option value="">Choose classification</option><option>Fact</option><option>Inference</option><option>Assumption</option></select></div>
- <div class="classify-item"><p>4. Nora’s unsent note proves Elena ignored Nora’s reply.</p><select id="class-4"><option value="">Choose classification</option><option>Fact</option><option>Inference</option><option>Assumption</option></select></div>
- <button class="button" id="check-evidence">CHECK CLASSIFICATIONS</button><div id="evidence-feedback" aria-live="polite"></div></div><div class="chapter-feedback" id="chapter-feedback"></div>`;
- $('#check-nora-listening').addEventListener('click',()=>{
-  const answers=['a','b','b'];let n=0;answers.forEach((a,i)=>{if($('#nora-listen-'+(i+1)).value===a)n++});
-  const score=Math.round(n/3*10);progress.scores.noraListening=score;save();
-  $('#nora-listening-feedback').innerHTML='<div class="feedback-card"><h4>'+n+' / 3 correct · '+score+'/10 listening points</h4><p>Her letter communicates hurt and uncertainty, but it does not prove that Elena deliberately ignored her.</p></div>';
- });
- $('#check-evidence').addEventListener('click',()=>{
- const answers=['Fact','Inference','Assumption','Assumption'];let n=0;answers.forEach((a,i)=>{if($('#class-'+(i+1)).value===a)n++});
- const score=Math.round(n/4*25);progress.scores.evidence=score;save();
- $('#evidence-feedback').innerHTML='<div class="feedback-card"><h4>'+n+' / 4 correct · '+score+'/25 evidence points</h4><p>Fact = directly observable in the evidence. Inference = a reasonable explanation supported by clues. Assumption = a conclusion that goes beyond what the evidence establishes.</p><p><b>Answer key:</b> 1 Fact · 2 Inference · 3 Assumption · 4 Assumption.</p><button class="button" id="complete-evidence">COMPLETE CHAPTER →</button></div>';
- $('#complete-evidence').addEventListener('click',()=>finishChapter(2));
- });
+ const qs=[
+ ['A “return to sender” mark is a…',['Fact','Inference','Assumption'],0],
+ ['A letter may not have reached Nora because of an address issue. This is a…',['Fact','Inference','Assumption'],1],
+ ['Elena never loved Nora. This is a…',['Fact','Inference','Assumption'],2],
+ ['Nora’s unsent letter proves Elena received and ignored her reply. This is a…',['Fact','Inference','Assumption'],2],
+ ['Which clue most directly supports a delivery problem?',['Nora felt disappointed','A returned envelope and address correction','Elena worked overseas'],1],
+ ['What does Nora’s letter reliably tell us?',['Exactly what Elena knew','Nora felt hurt and uncertain','Every letter was lost'],1],
+ ['Why be careful when interpreting a letter?',['It records a writer’s message but cannot prove every event','Letters never contain truth','All letters are unreliable'],0],
+ ['Which statement goes beyond the evidence?',['The envelope has a postal mark','Nora mentions her competition','The postal service intentionally hid every letter'],2],
+ ['Different addresses suggest that…',['An address change may have complicated delivery','Elena hid every letter','Nora never wrote'],0],
+ ['What remains uncertain?',['Whether Nora felt hurt','Whether an envelope was returned','What Elena knew about the competition that day'],2]
+ ];
+ $('#chapter-content').innerHTML='<div class="answer-panel"><p class="eyebrow">EVIDENCE ROOM</p><h3>Ten questions. No shortcuts.</h3><p class="muted">Answer all ten. Nora’s letter stays sealed until at least six answers are correct.</p>'+qs.map((q,i)=>'<div class="classify-item"><p>'+(i+1)+'. '+q[0]+'</p>'+q[1].map((o,j)=>'<label class="option-row"><input type="radio" name="evidence-'+i+'" value="'+j+'"><span>'+o+'</span></label>').join('')+'</div>').join('')+'<button class="button" id="check-evidence">SUBMIT EVIDENCE ANALYSIS</button><div id="evidence-feedback"></div></div><div class="letter-sheet" id="nora-seal"><div class="letter-meta">ITEM C · SEALED</div><h3>Nora’s letter is still closed.</h3><p>Get at least 6 out of 10 correct to reveal her writing.</p></div><div class="chapter-feedback" id="chapter-feedback"></div>';
+ $('#check-evidence').addEventListener('click',()=>{const picked=qs.map((q,i)=>document.querySelector('input[name="evidence-'+i+'"]:checked'));if(picked.some(x=>!x)){$('#evidence-feedback').innerHTML='<p class="inline-warning">Please answer all ten questions before submitting.</p>';return}let n=0;picked.forEach((x,i)=>{if(Number(x.value)===qs[i][2])n++});progress.scores.evidence=Math.round(n/10*25);save();if(n>=6)$('#nora-seal').innerHTML='<div class="letter-meta">PERSONAL CORRESPONDENCE · ITEM C</div><h3>Nora’s Unsent Reply</h3><p>Dear Mum,</p><p>I don’t know if I should still call you that when it feels like I’m talking to someone who isn’t really here.</p><p>I used to save every little thing I wanted to tell you. The songs I liked, the funny things my friends said, and the moments I wished you could see. I thought if I wrote everything down, the distance between us wouldn’t feel so big.</p><p>But I don’t know where my letters go anymore. Sometimes I wonder if you even read them. Maybe you’re too busy. Maybe you’ve forgotten what it’s like to have a daughter waiting for you.</p><p>Last week was my music competition at school. I kept looking at the audience, hoping I would see you. I checked my phone after the performance, too. No message. No letter. Nothing.</p><p>I miss you, Mum. I really do. But I’m tired of missing someone who seems so far away, even when I try to reach her.</p><p>Maybe one day I’ll understand why things turned out this way.</p><p><em>Nora</em></p>';$('#evidence-feedback').innerHTML='<div class="feedback-card"><h4>'+n+'/10 correct · '+progress.scores.evidence+'/25 points</h4><p>'+(n>=6?'You have unsealed Nora’s letter.':'The letter remains sealed. You need at least six correct. Review the clues and try again; answers are not revealed.')+'</p>'+(n>=6?'<button class="button" id="complete-evidence">COMPLETE CHAPTER →</button>':'')+'</div>';if(n>=6)$('#complete-evidence').addEventListener('click',()=>finishChapter(2))});
 }
 function hearing(){
  const qs=[
