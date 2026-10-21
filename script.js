@@ -1,5 +1,5 @@
 const KEY='ttd-progress-v2';
-const SHEETS_ENDPOINT=''; // Paste the deployed Google Apps Script Web App URL here.
+const SHEETS_ENDPOINT='https://script.google.com/macros/s/AKfycbzv1X1rZZbW2CN-V6UTDb_QhZNXq24icI4W7TeA6dkb-bTItUg3y7XOTUTzllZe838Unw/exec'; // Deployed Google Apps Script Web App URL.
 let session={mode:'',name:'',group:'',members:'',startedAt:0,endedAt:0};
 try{Object.assign(session,JSON.parse(localStorage.getItem('ttd-session')||'{}'))}catch{}
 function saveSession(){try{localStorage.setItem('ttd-session',JSON.stringify(session))}catch{}}
