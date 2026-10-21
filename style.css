@@ -493,3 +493,58 @@ button:disabled{opacity:.48;cursor:not-allowed;filter:saturate(.55)}
 @media (prefers-reduced-motion: reduce) {
   .next-step-lab, .reflection-response { animation: none !important; }
 }
+
+
+/* Stage 4: case journal captures a learner's initial hypothesis and final reflection */
+.case-journal, .journal-comparison {
+  margin: 26px 0;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid #c9a56855;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #30231b, #251b15);
+}
+.case-journal h3, .journal-comparison h4 {
+  margin: 0 0 10px;
+  color: #f0e2ca;
+  font: 500 24px/1.3 var(--serif);
+}
+.case-journal > p:not(.eyebrow), .journal-comparison > p {
+  color: #c9bba5;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.case-journal .option-row { background: #211813; }
+.journal-save-note {
+  margin-top: 18px;
+  color: #e2c58e !important;
+  font: 10px var(--mono);
+  letter-spacing: .3px;
+}
+.journal-comparison { margin: 22px 0; background: #2b2119; }
+.journal-comparison h4 { margin-top: 20px; font-size: 19px; }
+.journal-comparison .eyebrow { margin-bottom: 10px; }
+.journal-comparison .gap-field { margin-top: 18px; }
+.journal-comparison .gap-field textarea {
+  border-radius: 12px;
+  border-color: #b9a17c;
+}
+.journal-comparison .gap-field textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.journal-prompt {
+  padding: 14px 16px;
+  border-left: 2px solid var(--gold);
+  background: #211813;
+}
+#reflection-save-status {
+  color: #e2c58e;
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .case-journal, .journal-comparison {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+}
