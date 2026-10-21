@@ -35,3 +35,54 @@ audio{width:100%;margin:15px 0;accent-color:var(--gold)}
 .evidence-q-0{background:rgba(242,232,213,.055)}
 .evidence-q-1{background:rgba(201,165,104,.12)}
 button:disabled{opacity:.48;cursor:not-allowed;filter:saturate(.55)}
+
+
+/* Softer, rounded session setup card */
+#session-setup {
+  max-width: 900px;
+  margin: 0 auto;
+}
+#session-setup > h2 {
+  max-width: 720px;
+}
+#session-setup .briefing {
+  border: 1px solid #ffffff20;
+  border-radius: 22px;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 42px);
+  box-shadow: 0 18px 45px #0003;
+}
+#session-setup .option-row {
+  border-radius: 13px;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+#session-setup .option-row:hover {
+  border-color: #c9a56888;
+  transform: translateY(-1px);
+}
+#session-setup .gap-field input,
+#session-setup .gap-field textarea {
+  border-radius: 12px;
+  border-color: #b9a17c;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+#session-setup .gap-field input:focus,
+#session-setup .gap-field textarea:focus {
+  border-color: var(--gold);
+  border-radius: 12px;
+  outline: none;
+  box-shadow: 0 0 0 3px #c9a56830;
+}
+#session-setup .button {
+  border-radius: 999px;
+  padding: 16px 25px;
+}
+@media (max-width: 760px) {
+  #session-setup .briefing {
+    border-radius: 18px;
+    padding: 22px;
+  }
+  #session-setup .button {
+    width: 100%;
+  }
+}
