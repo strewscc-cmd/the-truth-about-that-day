@@ -24,7 +24,31 @@ try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved&&Number.isInteger
 function save(){try{localStorage.setItem(KEY,JSON.stringify(progress))}catch{}render()}
 function render(){
  $('#header-progress').textContent=progress.visited.length+' / 5 CHAPTERS';
- document.querySelectorAll('.chapter-card').forEach((card,i)=>{const open=i<Math.max(1,progress.unlocked);card.disabled=!open;card.querySelector('.state').textContent=!open?'LOCKED':progress.visited.includes(i)?'REVISIT ↗':'AVAILABLE ↗'});
+ document.querySelectorAll('.chapter-card').forEach((card,i)=>{
+  const open=i<Math.max(1,progress.unlocked);
+  const done=progress.visited.includes(i);
+  card.disabled=!open;
+  card.classList.toggle('is-complete',done);
+  card.classList.toggle('is-available',open&&!done);
+  card.querySelector('.state').textContent=!open?'SEALED':done?'COMPLETED ✓':'AVAILABLE ↗';
+ });
+ const chapterList=$('#chapters .chapter-list');
+ if(chapterList){
+  let tracker=$('#investigation-progress');
+  if(!tracker){
+   tracker=document.createElement('div');
+   tracker.id='investigation-progress';
+   tracker.className='investigation-progress';
+   tracker.setAttribute('aria-label','Investigation progress');
+   chapterList.insertAdjacentElement('beforebegin',tracker);
+  }
+  const steps=chapters.map((chapter,i)=>{
+   const done=progress.visited.includes(i);
+   const open=i<Math.max(1,progress.unlocked);
+   return '<div class="progress-step '+(done?'is-complete':open?'is-current':'is-locked')+'"><span class="progress-node">'+(done?'✓':String(i+1).padStart(2,'0'))+'</span><span class="progress-step-label">'+chapter.title+'</span></div>';
+  }).join('');
+  tracker.innerHTML='<div class="progress-heading"><span>YOUR INVESTIGATION</span><b>'+progress.visited.length+' OF 5 COMPLETE</b></div><div class="progress-track" role="list">'+steps+'</div><div class="progress-meter"><span style="width:'+Math.min(100,progress.visited.length/5*100)+'%"></span></div>';
+ }
 }
 function scrollTo(el){el.scrollIntoView({behavior:'smooth',block:'start'})}
 function finishChapter(i){
