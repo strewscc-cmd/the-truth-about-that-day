@@ -86,3 +86,172 @@ button:disabled{opacity:.48;cursor:not-allowed;filter:saturate(.55)}
     width: 100%;
   }
 }
+
+
+/* Stage 1: soft interactive investigation progress */
+#chapters .chapter-list {
+  border-top: 0;
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+.investigation-progress {
+  margin: 28px 0 24px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid #ffffff18;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #30231b, #261c16);
+  box-shadow: 0 16px 38px #0002;
+}
+.progress-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  font: 9px var(--mono);
+  letter-spacing: 1.2px;
+  color: #b69a6b;
+}
+.progress-heading b {
+  font-weight: 400;
+  color: #e6d6bc;
+}
+.progress-track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-align: center;
+}
+.progress-node {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #6c5840;
+  background: #211813;
+  color: #a99a84;
+  font: 10px var(--mono);
+  transition: background .22s ease, color .22s ease, transform .22s ease, border-color .22s ease;
+}
+.progress-step-label {
+  max-width: 100%;
+  font: 10px/1.4 var(--sans);
+  color: #a99a84;
+  overflow-wrap: anywhere;
+}
+.progress-step.is-complete .progress-node {
+  background: #c9a568;
+  color: #211813;
+  border-color: #c9a568;
+}
+.progress-step.is-complete .progress-step-label {
+  color: #e8d7b8;
+}
+.progress-step.is-current .progress-node {
+  border-color: #c9a568;
+  color: #e7c98f;
+  box-shadow: 0 0 0 4px #c9a56818;
+}
+.progress-step.is-current .progress-step-label {
+  color: #e7c98f;
+}
+.progress-step.is-locked .progress-node {
+  opacity: .55;
+}
+.progress-meter {
+  height: 4px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ffffff12;
+}
+.progress-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #9d7947, #e0c28b);
+  transition: width .35s ease;
+}
+.chapter-card {
+  border: 1px solid #ffffff14;
+  border-radius: 16px;
+  padding: 20px 18px;
+  background: #2a2019;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.chapter-card:not(:disabled):hover {
+  background: #33251d;
+  border-color: #c9a56870;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px #0002;
+}
+.chapter-card.is-complete {
+  border-color: #c9a56855;
+}
+.chapter-card.is-complete .state {
+  color: #d8bd8b;
+}
+.chapter-card:disabled {
+  border-style: dashed;
+}
+.chapter-card .state {
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: #c9a56812;
+}
+.button, .secondary-button, .text-button {
+  border-radius: 12px;
+}
+.button {
+  box-shadow: 0 5px 14px #0002;
+}
+.button:focus-visible, .secondary-button:focus-visible, .chapter-card:focus-visible {
+  outline: 2px solid #e2c58e;
+  outline-offset: 3px;
+}
+.option-row {
+  border-radius: 12px;
+  transition: border-color .2s ease, background .2s ease;
+}
+.option-row:hover {
+  border-color: #c9a56880;
+}
+@media (max-width: 760px) {
+  .investigation-progress {
+    padding: 18px 12px;
+    border-radius: 18px;
+  }
+  .progress-track {
+    gap: 3px;
+  }
+  .progress-node {
+    width: 30px;
+    height: 30px;
+    font-size: 9px;
+  }
+  .progress-step-label {
+    font-size: 9px;
+  }
+  .progress-heading {
+    font-size: 8px;
+    letter-spacing: .7px;
+  }
+  .chapter-card {
+    border-radius: 14px;
+    padding: 17px 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-node, .progress-meter span, .chapter-card, .option-row, .button {
+    transition: none !important;
+  }
+}
