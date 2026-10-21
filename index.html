@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#211813">
+  <meta name="description" content="An interactive personal letter investigation game for English learners.">
+  <title>The Truth About That Day | Case File 011</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">TTD</span><span><b>THE ARCHIVE</b><small>PERSONAL LETTER INVESTIGATION</small></span></a>
+  <div class="case-status">CASE FILE 011 <span> / </span><span id="header-progress">0 / 5 CHAPTERS</span></div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div>
+      <p class="eyebrow">AN INTERACTIVE ENGLISH MYSTERY</p>
+      <h1>The Truth<br><em>About That Day</em></h1>
+      <p class="subtitle">Some letters were written. Some words were never heard.</p>
+      <p class="intro">A forgotten box. Two sides of a story. Years of silence that may not mean what they seem.</p>
+      <button class="button" id="begin-button">OPEN THE CASE FILE ↗</button>
+      <p class="micro">LISTEN · EXAMINE · INFER</p>
+    </div>
+    <div class="hero-art" aria-label="Illustration of old letters and envelopes">
+      <div class="stamp">ARCHIVE<br><strong>011</strong></div>
+      <div class="paper"><small>OCTOBER 14</small><div class="lines"></div><i>With love,</i></div>
+      <div class="envelope"><span>For Nora</span><small>PERSONAL & CONFIDENTIAL</small></div>
+      <p class="art-caption">EVIDENCE ITEM 01 · UNOPENED CORRESPONDENCE</p>
+    </div>
+  </section>
+  <section class="panel hidden" id="case-intro">
+    <p class="eyebrow">01 — THE CASE FILE</p><h2>The Forgotten Box</h2>
+    <p class="muted">Read the briefing carefully. Every detail may matter.</p>
+    <div class="columns">
+      <article class="briefing">
+        <div class="topline">CASE BRIEFING <span>CONFIDENTIAL</span></div>
+        <p>While helping her family pack up their old home, Nora, a Grade XI student, discovers a dusty box hidden behind a stack of family albums. Inside are old envelopes, handwritten letters, and a photograph of her mother, Elena.</p>
+        <p>Elena left to work overseas when Nora was five, promising to keep in touch through letters. Over the years, their communication became irregular. Nora grew convinced that her mother had stopped trying to be part of her life.</p>
+        <p>Then Nora finds letters written by both of them—some dated around the very years she remembers feeling forgotten. Several envelopes carry different addresses. One bears a postal return mark.</p>
+        <p class="question">Your assignment: find out what the evidence can tell us—and what it cannot.</p>
+        <button class="button" id="continue-button">EXAMINE THE EVIDENCE →</button>
+      </article>
+      <aside class="objectives">
+        <p class="eyebrow">YOUR INVESTIGATION</p>
+        <div><b>01 / Listen closely</b><p>Reconstruct a personal letter from audio clues.</p></div>
+        <div><b>02 / Examine the evidence</b><p>Compare dates, addresses, and perspectives.</p></div>
+        <div><b>03 / Build a fair conclusion</b><p>Separate facts from inferences and assumptions.</p></div>
+        <blockquote>A feeling can be real even when the explanation behind it is incomplete.</blockquote>
+      </aside>
+    </div>
+  </section>
+  <section class="panel hidden" id="chapters">
+    <p class="eyebrow">THE INVESTIGATION</p><h2>Five steps to the truth.</h2>
+    <p class="muted">Complete each chapter to unlock the next part of the case.</p>
+    <div class="chapter-list">
+      <button class="chapter-card" data-chapter="0"><span>01</span><b>The Case File</b><small>Read the briefing and identify the central question.</small><strong class="state">AVAILABLE ↗</strong></button>
+      <button class="chapter-card" data-chapter="1" disabled><span>02</span><b>The Voices</b><small>Listen to Elena's letter and reconstruct six missing parts.</small><strong class="state">LOCKED</strong></button>
+      <button class="chapter-card" data-chapter="2" disabled><span>03</span><b>The Evidence Room</b><small>Match the letters with the timeline and postal clues.</small><strong class="state">LOCKED</strong></button>
+      <button class="chapter-card" data-chapter="3" disabled><span>04</span><b>The Hearing</b><small>Compare perspectives and support claims with evidence.</small><strong class="state">LOCKED</strong></button>
+      <button class="chapter-card" data-chapter="4" disabled><span>05</span><b>The Final Verdict</b><small>Build the most reasonable explanation of the silence.</small><strong class="state">LOCKED</strong></button>
+    </div>
+    <p class="save-note">✦ Progress is saved in this browser on this device.</p>
+  </section>
+  <section class="panel hidden" id="chapter-view">
+    <button class="text-button" id="back-chapters">← BACK TO CHAPTERS</button>
+    <p class="eyebrow" id="chapter-label">CHAPTER 02</p><h2 id="chapter-title">The Voices</h2>
+    <p class="muted" id="chapter-description"></p>
+    <div id="chapter-content" class="briefing"></div>
+  </section>
+</main>
+<footer><span>THE ARCHIVE ✦ CASE FILE 011</span><span>AN ENGLISH LEARNING EXPERIENCE</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
