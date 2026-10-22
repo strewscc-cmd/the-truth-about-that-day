@@ -16,7 +16,35 @@
   <div class="case-status">CASE FILE 011 <span> / </span><span id="header-progress">0 / 5 CHAPTERS</span></div>
 </header>
 <main>
-  <section class="hero" id="home">
+  <section class="hero prologue" id="nora-prologue">
+    <div class="prologue-copy">
+      <p class="eyebrow">A MESSAGE FROM NORA · 11:47 PM</p>
+      <h1>Before<br><em>the case</em></h1>
+      <div class="nora-chat" aria-live="polite">
+        <p class="chat-label">NORA · MESSAGE 01</p>
+        <p class="nora-line" id="nora-line">Hey… sorry for messaging so late. I found something while packing up the old house, and I honestly don't know what to make of it.</p>
+      </div>
+      <div id="prologue-choices" class="prologue-choices">
+        <p class="choice-prompt">How do you respond?</p>
+        <button class="choice-button" data-reply="care">“Are you okay? What did you find?”</button>
+        <button class="choice-button" data-reply="curious">“What kind of thing are we talking about?”</button>
+        <button class="choice-button" data-reply="support">“I'm here. Take your time and tell me.”</button>
+      </div>
+      <div id="prologue-next" class="hidden">
+        <p class="player-reply" id="player-reply"></p>
+        <p class="nora-line nora-followup" id="nora-followup"></p>
+        <button class="button" id="prologue-continue">I'LL HELP YOU FIND OUT →</button>
+      </div>
+      <p class="micro">A PERSONAL STORY · YOUR FIRST CHOICE · NO SCORES</p>
+    </div>
+    <div class="hero-art prologue-art" aria-label="An old suitcase and letters waiting to be discovered">
+      <div class="stamp">PRIVATE<br><strong>011</strong></div>
+      <div class="paper"><small>DEAR NORA,</small><div class="lines"></div><i>I never stopped…</i></div>
+      <div class="envelope"><span>For Nora</span><small>NEVER DELIVERED</small></div>
+      <p class="art-caption">A MESSAGE THAT NEVER REACHED HER</p>
+    </div>
+  </section>
+  <section class="hero hidden" id="home">
     <div>
       <p class="eyebrow">AN INTERACTIVE ENGLISH MYSTERY</p>
       <h1>The Truth<br><em>About That Day</em></h1>
