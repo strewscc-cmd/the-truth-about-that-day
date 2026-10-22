@@ -32,6 +32,30 @@
       <p class="art-caption">EVIDENCE ITEM 01 · UNOPENED CORRESPONDENCE</p>
     </div>
   </section>
+  <section class="panel hidden" id="letter-locker">
+    <p class="eyebrow">PRE-CASE PUZZLE · SEALED LUGGAGE</p>
+    <h2>The Locked Suitcase</h2>
+    <p class="muted">Before the case file can be opened, you must recover the letter hidden inside this old suitcase. The lock is asking you to think like a reader of personal letters.</p>
+    <div class="locker-layout">
+      <div class="locker-visual" aria-label="Illustration of a locked vintage suitcase">
+        <div class="suitcase-handle"></div><div class="suitcase-body"><span class="suitcase-stamp">ELENA<br>PERSONAL PAPERS</span><div class="combination-lock"><span>✦</span><b>_ _ _ _</b></div><div class="suitcase-stripe"></div></div>
+        <p class="locker-caption">PROPERTY OF E. · DO NOT DISCARD</p>
+      </div>
+      <div class="locker-puzzle">
+        <div class="topline">RECOVERED NOTE <span>ITEM 00</span></div>
+        <p class="letter-excerpt">“Dear Nora,<br><br>I hope this letter finds you well. I often think of you, even when we are far apart.<br><br>With all my love,<br>Mum”</p>
+        <p class="puzzle-instruction">Four tags have fallen off the letter. Put the parts of a personal letter in the correct order—from the beginning to the end. Each tag contains one digit. The sequence will unlock the suitcase.</p>
+        <div class="lock-sequence">
+          <label class="gap-field"><span>01 · What comes first?</span><select id="lock-part-1"><option value="">Choose a letter part</option><option value="2">Greeting — “Dear Nora” (2)</option><option value="4">Body — the main message (4)</option><option value="9">Closing — “With all my love” (9)</option><option value="7">Signature — “Mum” (7)</option></select></label>
+          <label class="gap-field"><span>02 · What comes second?</span><select id="lock-part-2"><option value="">Choose a letter part</option><option value="2">Greeting — “Dear Nora” (2)</option><option value="4">Body — the main message (4)</option><option value="9">Closing — “With all my love” (9)</option><option value="7">Signature — “Mum” (7)</option></select></label>
+          <label class="gap-field"><span>03 · What comes third?</span><select id="lock-part-3"><option value="">Choose a letter part</option><option value="2">Greeting — “Dear Nora” (2)</option><option value="4">Body — the main message (4)</option><option value="9">Closing — “With all my love” (9)</option><option value="7">Signature — “Mum” (7)</option></select></label>
+          <label class="gap-field"><span>04 · What comes last?</span><select id="lock-part-4"><option value="">Choose a letter part</option><option value="2">Greeting — “Dear Nora” (2)</option><option value="4">Body — the main message (4)</option><option value="9">Closing — “With all my love” (9)</option><option value="7">Signature — “Mum” (7)</option></select></label>
+        </div>
+        <button class="button" id="try-lock">ENTER CODE & OPEN SUITCASE →</button>
+        <div id="locker-feedback" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
   <section class="panel hidden" id="case-intro">
     <p class="eyebrow">01 — THE CASE FILE</p><h2>The Forgotten Box</h2>
     <p class="muted">Read the briefing carefully. Every detail may matter.</p>
